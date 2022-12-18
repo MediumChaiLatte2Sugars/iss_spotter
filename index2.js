@@ -1,10 +1,13 @@
-const { fetchMyIP, fetchCoordsByIP } = require("./iss_promised");
+const { nextISSTimesForMyLocation } = require("./iss_promised");
+const { printPassTimes } = require("./helpers");
 
 /*
- * Requests user's ip address from https://www.ipify.org/
- * Input: None
- * Returns: Promise of request for ip data, returned as JSON string
+ * Obtains and displays the next ISS flyover times for the user's current location
  */
-fetchMyIP()
-  .then(fetchCoordsByIP)
-  .then(body => { console.log(body); })
+nextISSTimesForMyLocation()
+  .then((passTimes) => {
+    printPassTimes(passTimes);
+  })
+  // .catch((error) => {
+  //   console.log("Something went wrong! ", error.message);
+  // })
