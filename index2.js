@@ -1,4 +1,4 @@
-const { fetchMyIP } = require("./iss_promised");
+const { fetchMyIP, fetchCoordsByIP } = require("./iss_promised");
 
 /*
  * Requests user's ip address from https://www.ipify.org/
@@ -6,4 +6,5 @@ const { fetchMyIP } = require("./iss_promised");
  * Returns: Promise of request for ip data, returned as JSON string
  */
 fetchMyIP()
-  .then(body => { console.log(body) });
+  .then(fetchCoordsByIP)
+  .then(body => { console.log(body); })
