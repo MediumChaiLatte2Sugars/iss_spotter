@@ -1,8 +1,8 @@
 const request = require('request-promise-native');
 
-/* 
+/*
  * Makes a request to api.ipify.org to obtain the user's IP address
- * Input: 
+ * Input:
  * Returns: Promise of request for IP
  */
 const fetchMyIP = function() {
@@ -12,7 +12,7 @@ const fetchMyIP = function() {
 
 };
 
-/* 
+/*
  * Makes a request to ipwho.is using the provided IP address to get its geographical information (latitude/longitude)
  * Input: JSON string containing the IP address
  * Returns: Promise of request for lat/lon
@@ -22,7 +22,7 @@ const fetchCoordsByIP = function(body) {
   return request(`http://ipwho.is/${ip}`);
 };
 
-/* 
+/*
  * Makes a request to iss-flyover.herokuapp.com using the provided latitude and longitude to get the next ISS flyover times
  * Input: JSON body containing the latitude and longitude data from ipwho.is
  * Returns: Promise of request for flyover times
@@ -34,7 +34,7 @@ const fetchISSFlyOverTimes = function(body) {
 
 };
 
-/* 
+/*
  * Chains requests made to several APIs to obtain ISS flyover data for the user's current location
  * Input: None
  * Returns: Promise for fly over data for user's location
